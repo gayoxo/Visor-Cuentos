@@ -39,8 +39,8 @@ public class MainVisor extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setResizable(false);
 		setTitle("Visor");
-		int xSize = 700;  
-		int ySize =700;
+//		int xSize = 700;  
+//		int ySize =700;
 //		Toolkit tk = Toolkit.getDefaultToolkit();  
 //		xSize = ((int) tk.getScreenSize().getWidth());  
 //		ySize = ((int) tk.getScreenSize().getHeight());  
@@ -100,9 +100,10 @@ public class MainVisor extends JFrame {
 
 					@Override
 					public void actionPerformed(ActionEvent arg0) {
-						//TODO Mergegrupos.
-						UnirEntidades UE=new UnirEntidades();
-						UE.setVisible(true);
+						ProcessoExpress.Iniciate();
+//						
+//						UnirEntidades UE=new UnirEntidades();
+//						UE.setVisible(true);
 //						PanelSeleccionAutomaticoManual PSAM=new PanelSeleccionAutomaticoManual();
 //						PSAM.setVisible(true);
 					}
