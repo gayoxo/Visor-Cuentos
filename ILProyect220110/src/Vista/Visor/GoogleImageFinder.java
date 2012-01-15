@@ -4,12 +4,6 @@ import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 
 import java.awt.Dimension;
-import java.awt.Graphics2D;
-import java.awt.GraphicsConfiguration;
-import java.awt.GraphicsDevice;
-import java.awt.GraphicsEnvironment;
-import java.awt.GridLayout;
-import java.awt.Image;
 import java.awt.Toolkit;
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -20,17 +14,13 @@ import java.net.URL;
 import java.net.URLDecoder;
 import java.util.ArrayList;
 
-import javax.swing.Icon;
 import javax.swing.JLabel;
 import javax.swing.JScrollPane;
 import javax.swing.JPanel;
 
-import Model.Modelo111218;
-
 import java.awt.BorderLayout;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.awt.image.BufferedImage;
 
 public class GoogleImageFinder extends JFrame {
 	
