@@ -7,6 +7,7 @@ public class Modelo111218 {
 	
 	private static Modelo111218 Yo;
 	private String TextoFreeLing;
+	private String Titulo;
 	private static ArrayList<Pesonaje> NominalesTexto; 
 	private ArrayList<Parrafo> TextoLineado;
 	
@@ -15,6 +16,7 @@ public class Modelo111218 {
 		TextoFreeLing="";
 		NominalesTexto=new ArrayList<Pesonaje>();
 		TextoLineado=new ArrayList<Parrafo>();
+		Titulo="Cuento";
 		
 	}
 	
@@ -54,8 +56,10 @@ public class Modelo111218 {
 			if (!ColumnasString[0].isEmpty()) {
 				Parrafo.append(string+'\n');
 				if (ColumnasString[2].toUpperCase().equals("FP")) {
-					TextoLineado.add(new Parrafo(LineaActual, Parrafo
-							.toString()));
+					Parrafo P=new Parrafo(LineaActual, Parrafo
+							.toString());
+					TextoLineado.add(P);
+					if (LineaActual==1) Titulo=P.getTextoParrafo();
 					Parrafo = new StringBuffer();
 					LineaActual++;
 				}
@@ -178,6 +182,11 @@ public class Modelo111218 {
 			par.getPersonajesParrafo().remove(personajeBorrar);
 		}
 		
+	}
+	
+	public String getTitulo() {
+		String TituloPre=Titulo.replace(' ','+');
+		return TituloPre;
 	}
 
 }

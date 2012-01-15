@@ -32,7 +32,10 @@ public class GoogleImageFinderExpress{
 
 	private void getImagenes(String name) {
 		try {
-			URL google = new URL("http://images.google.com.uy/images?q="+name+"+.jpg"); 
+			String TextoExtra="+jpg";
+			String Busqueda="http://images.google.com.uy/images?q="+name+TextoExtra;
+			System.out.println(Busqueda);
+			URL google = new URL(Busqueda); 
 	        HttpURLConnection connection = (HttpURLConnection) google.openConnection();
 	        connection.addRequestProperty("User-Agent", "Mozilla/4.76"); 
 			BufferedReader in = new BufferedReader( 
@@ -73,16 +76,22 @@ public class GoogleImageFinderExpress{
 			//System.out.println(aux[0]+".jpg");
 			String[] aux2=string2.split(".jpg");
 			
-			String Salida="vacio";
+			String Salida=null;
 			if (aux.length>1)
+			{
 				Salida=aux[0]+".JPG";
+			}
 			else 
 				if (aux2.length>1)
+				{
 					Salida=aux2[0]+".jpg";
-			
+				}
 		//	Salida=testFormato(Salida);
-			Salida=testFormato(Salida);
-			if (Salida!=null) Images.add(Salida);
+			
+			if (Salida!=null) {
+				Salida=testFormato(Salida);
+				Images.add(Salida);
+			}
 			
 			
 		}

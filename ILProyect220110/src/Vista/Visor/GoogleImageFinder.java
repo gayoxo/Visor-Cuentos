@@ -24,6 +24,9 @@ import javax.swing.Icon;
 import javax.swing.JLabel;
 import javax.swing.JScrollPane;
 import javax.swing.JPanel;
+
+import Model.Modelo111218;
+
 import java.awt.BorderLayout;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -115,7 +118,10 @@ public class GoogleImageFinder extends JFrame {
 
 	private void getImagenes(String name) {
 		try {
-			URL google = new URL("http://images.google.com.uy/images?q="+name+".jpg"); 
+			String TextoExtra="+Cuento+";
+			String Busqueda="http://images.google.com.uy/images?q="+name+TextoExtra;
+			System.out.println(Busqueda);
+			URL google = new URL(Busqueda); 
 	        HttpURLConnection connection = (HttpURLConnection) google.openConnection();
 	        connection.addRequestProperty("User-Agent", "Mozilla/4.76"); 
 			BufferedReader in = new BufferedReader( 
