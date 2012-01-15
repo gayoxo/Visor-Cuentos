@@ -13,7 +13,6 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.SwingUtilities;
 
-import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.BorderLayout;
 import java.awt.Image;
@@ -30,8 +29,9 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.event.ComponentAdapter;
 import java.awt.event.ComponentEvent;
+import java.awt.Font;
 
-public class VisorCuentos extends JFrame {
+public class CopyOfVisorCuentos extends JFrame {
 	
 	private int ActualLine=0;
 	private JTextArea Texto;
@@ -39,10 +39,10 @@ public class VisorCuentos extends JFrame {
 	private JButton button;
 	private ArrayList<Parrafo> Parrafos;
 	private JPanel panel_1;
-	private VisorCuentos Visor;
+	private CopyOfVisorCuentos Visor;
 	//private JLabel label;
 	
-	public VisorCuentos() {
+	public CopyOfVisorCuentos() {
 		Visor=this;
 		Parrafos=Modelo111218.getInstance().getTextoLineado();
 		setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
@@ -50,9 +50,9 @@ public class VisorCuentos extends JFrame {
 		setTitle("Visor");
 		int xSize = 700;  
 		int ySize =614;
-		Toolkit tk = Toolkit.getDefaultToolkit();  
-		xSize = ((int) tk.getScreenSize().getWidth());  
-		ySize = ((int) tk.getScreenSize().getHeight());  
+//		Toolkit tk = Toolkit.getDefaultToolkit();  
+//		xSize = ((int) tk.getScreenSize().getWidth());  
+//		ySize = ((int) tk.getScreenSize().getHeight());  
 		setSize(xSize,ySize);
 		getContentPane().setLayout(new BorderLayout(0, 0));
 		
@@ -113,47 +113,23 @@ public class VisorCuentos extends JFrame {
 //		P3 = new JLabel("");
 //		scrollPane_2.setViewportView(P3);
 		
-//		panel_1.setLayout(new GridLayout(2, 2, 0, 0));
-//		
-//		JPanel scrollPane = new JPanel();
-//		panel_1.add(scrollPane);		
-//		scrollPane.setLayout(new BorderLayout(0, 0));
-//		
-//		JLabel label = new JLabel("");
-//		label.addComponentListener(new ComponentAdapter() {
-//			@Override
-//			public void componentResized(ComponentEvent arg0) {
-//				JLabel label22 = (JLabel)arg0.getSource();
-//				ImageIcon II = null;
-//				try {
-//					II = new ImageIcon(new URL("http://images5.cuantocabron.com/ccs/2011/12/CC_844490_mirada_fija_si_lo_has_dicho_lo_has_dicho.jpg"));
-//				} catch (MalformedURLException e1) {
-//					// TODO Auto-generated catch block
-//					e1.printStackTrace();
-//				}
-//				
-//				Icon icono = new ImageIcon(II.getImage().getScaledInstance(label22.getWidth(), label22.getHeight(), Image.SCALE_DEFAULT));
-//				
-//				label22.setIcon(icono);
-//			}
-//		});
-//		scrollPane.add(label, BorderLayout.CENTER);
-//		ImageIcon II = null;
-//		try {
-//			II = new ImageIcon(new URL("http://images5.cuantocabron.com/ccs/2011/12/CC_844490_mirada_fija_si_lo_has_dicho_lo_has_dicho.jpg"));
-//		} catch (MalformedURLException e1) {
-//			// TODO Auto-generated catch block
-//			e1.printStackTrace();
-//		}
-//		
-//		Icon icono = new ImageIcon(II.getImage().getScaledInstance(label.getWidth(), label.getHeight(), Image.SCALE_DEFAULT));
-//		
-//		label.setIcon(icono);	
-//		label.repaint();
-//		
-//		repaint();
+		panel_1.setLayout(new GridLayout(1, 1, 0, 0));
 		
-		refrescamelotodo();
+		JTextArea textArea = new JTextArea();
+		textArea.setFont(new Font("Candy Round BTN Cond", Font.PLAIN, 43));
+		textArea.setLineWrap(true);
+		panel_1.add(textArea);
+		ImageIcon II = null;
+		try {
+			II = new ImageIcon(new URL("http://images5.cuantocabron.com/ccs/2011/12/CC_844490_mirada_fija_si_lo_has_dicho_lo_has_dicho.jpg"));
+		} catch (MalformedURLException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		
+	//	repaint();
+		
+	//	refrescamelotodo();
 		
 		
 		
@@ -171,20 +147,13 @@ public class VisorCuentos extends JFrame {
 		int Filas=(int)(Math.round(Div));
 		panel_1.setLayout(new GridLayout(Filas, Columnas, 0, 0));
 		
-//		JScrollPane scrollPane_3 = new JScrollPane();
-//		panel_1.add(scrollPane_3);
+		JScrollPane scrollPane_3 = new JScrollPane();
+		panel_1.add(scrollPane_3);
 		
 		Texto = new JTextArea();
-//		scrollPane_3.setViewportView(Texto);
-//		Texto.setAutoscrolls(true);
+		scrollPane_3.setViewportView(Texto);
+		Texto.setAutoscrolls(true);
 		Texto.setText(P.getTextoParrafo());
-		Texto.setLineWrap(true);
-		
-		//Texto.setFont(new Font("Alibi", Font.PLAIN, 33));
-		Texto.setFont(new Font("Candy Round BTN Cond", Font.PLAIN, 33));
-		
-		JScrollPane scrollPane_3 = new JScrollPane(Texto,JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER );
-		panel_1.add(scrollPane_3);
 		
 		for (Pesonaje pesonaje : salida) {
 			
