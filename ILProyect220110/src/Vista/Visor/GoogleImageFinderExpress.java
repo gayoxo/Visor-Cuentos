@@ -81,7 +81,7 @@ public class GoogleImageFinderExpress{
 					Salida=aux2[0]+".jpg";
 			
 		//	Salida=testFormato(Salida);
-			
+			Salida=testFormato(Salida);
 			if (Salida!=null) Images.add(Salida);
 			
 			
@@ -89,22 +89,20 @@ public class GoogleImageFinderExpress{
 		
 	}
 
+
 	private String testFormato(String salida) {
 		String SalidaAct=salida;
 		try {
 			SalidaAct=URLDecoder.decode(SalidaAct, "UTF-8");
 		} catch (Exception e) {
-			//e.printStackTrace();
-			System.err.println("Error: " +SalidaAct);
+			e.printStackTrace();
 		}
 		
 //		String[] Splitt=SalidaAct.split("%");
-//		if (Splitt.length==1)
+//		if (Splitt.length==1) 
 			return SalidaAct;
-//		else return null;
+	//	else return null;
 	}
-
-		
 		
 
 	

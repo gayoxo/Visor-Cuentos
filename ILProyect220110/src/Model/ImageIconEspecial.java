@@ -22,7 +22,7 @@ public class ImageIconEspecial extends ImageIcon {
 		
 		Avariables=images;
 		
-		while((getIconWidth()==0 || getIconHeight()==0)&&(actual!=Avariables.size()-1))
+		while((getIconWidth()<=0 || getIconHeight()<=0)&&(actual!=Avariables.size()-1))
 		{
 			actual++;
 			try {
