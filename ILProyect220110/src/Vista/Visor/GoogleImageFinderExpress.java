@@ -4,6 +4,7 @@ import javax.sound.midi.SysexMessage;
 import javax.swing.ImageIcon;
 
 import java.awt.Image;
+import java.awt.image.ImageObserver;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -16,6 +17,7 @@ import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.Random;
 
+import Model.ImageIconEspecial;
 import Model.Modelo111218;
 import Model.Pesonaje;
 
@@ -110,16 +112,14 @@ public class GoogleImageFinderExpress{
 	private void FindElementIndi(Pesonaje person) {
 		Images=new ArrayList<String>();
 		getImagenes(person.getFindName());
-		Random R=new Random();
-		String Imagen=Images.get(R.nextInt(10));
-		ImageIcon II;
+		String Imagen=Images.get(0);
+		ImageIconEspecial II;
 		try {
 			
 		//	Imagen=URLEncoder.encode(Imagen, "UTF-8");
 			System.out.println(person.getName() + " : " + Imagen);
-			II = new ImageIcon((new URL(Imagen)));
-		
-		person.setImagenAsociada(II);
+			II = new ImageIconEspecial((new URL(Imagen)),Images);
+			person.setImagenAsociada(II);
 			
 		} catch (MalformedURLException e) {
 			System.err.println(Imagen);

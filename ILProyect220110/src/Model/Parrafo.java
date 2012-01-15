@@ -20,7 +20,8 @@ public class Parrafo {
 		for (String string : Saltado) {
 			String[] LineaFree=string.split(" ");
 			if (LineaFree[2].charAt(0)==('N')){
-				Pesonaje P=Modelo111218.getInstance().generaPersonaje(LineaFree[0],LineaFree[1]);
+				String Resumen=DeteccionManual(LineaFree[1]);
+				Pesonaje P=Modelo111218.getInstance().generaPersonaje(LineaFree[0],Resumen);
 					if (!NoEstaYa(P))
 						PersonajesParrafo.add(P);
 			}
@@ -29,6 +30,31 @@ public class Parrafo {
 		TextoParrafo=SB.toString();
 		System.out.println(TextoParrafo);
 		
+	}
+
+	private String DeteccionManual(String string) {
+		String Nombre=string;
+		if (Nombre.endsWith("ita")) 
+		{
+			Nombre=Nombre.substring(0, Nombre.length()-3);
+			Nombre=Nombre.concat("a");
+		}
+		if (Nombre.endsWith("ito")) 
+		{
+			Nombre=Nombre.substring(0, Nombre.length()-3);
+			Nombre=Nombre.concat("o");
+		}
+		if (Nombre.endsWith("illa")) 
+		{
+			Nombre=Nombre.substring(0, Nombre.length()-3);
+			Nombre=Nombre.concat("a");
+		}
+		if (Nombre.endsWith("illo")) 
+		{
+			Nombre=Nombre.substring(0, Nombre.length()-3);
+			Nombre=Nombre.concat("o");
+		}
+		return Nombre;
 	}
 
 	private boolean NoEstaYa(Pesonaje p) {

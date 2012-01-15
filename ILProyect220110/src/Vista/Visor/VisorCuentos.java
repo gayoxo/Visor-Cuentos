@@ -175,6 +175,7 @@ public class VisorCuentos extends JFrame {
 		
 		Texto = new JTextArea();
 		scrollPane_3.setViewportView(Texto);
+		Texto.setAutoscrolls(true);
 		Texto.setText(P.getTextoParrafo());
 		
 		for (Pesonaje pesonaje : salida) {

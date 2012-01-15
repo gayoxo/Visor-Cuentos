@@ -25,9 +25,13 @@ public class Modelo111218 {
 	}
 
 	public Pesonaje generaPersonaje(String Nuevo, String acotado) {
+		
 		for (Pesonaje P : NominalesTexto) {
 			if (P.EstaEn(Nuevo.toUpperCase())||(P.EstaEn(acotado.toUpperCase()))) 
+				{
+				P.setAparicion(P.getAparicion()+1);
 				return P;
+				}
 		}
 		Pesonaje NecesitaNuevo=new Pesonaje(Nuevo,acotado);
 		NominalesTexto.add(NecesitaNuevo);
@@ -57,10 +61,48 @@ public class Modelo111218 {
 				}
 			}
 		}
+		//testeando;
+		ProcesoDeLimpieza();
 		System.out.println("End Load");
 
 	}
 	
+	private void ProcesoDeLimpieza() {
+		ArrayList<Pesonaje> Limpios=new ArrayList<Pesonaje>();
+		for (Pesonaje P:NominalesTexto)
+			{
+			if (P.getAparicion()>2)
+				{
+				Limpios.add(P);
+				}
+			else
+				{
+				BorrarParrafos(P);
+				}
+			
+			}
+		NominalesTexto=Limpios;
+		
+	}
+
+	private void BorrarParrafos(Pesonaje p) {
+		for (Parrafo par : TextoLineado) {
+			LimpiarParrafoUni(par,p);
+		}
+		
+	}
+
+	private void LimpiarParrafoUni(Parrafo par, Pesonaje borrar) {
+		ArrayList<Pesonaje> PersonNew=new ArrayList<Pesonaje>();
+		for (Pesonaje PerPos: par.getPersonajesParrafo())
+			{
+			if (!PerPos.getName().equals(borrar.getName()))
+				PersonNew.add(PerPos);
+			}
+		par.setPersonajesParrafo(PersonNew);
+		
+	}
+
 	public ArrayList<Pesonaje> getNominalesTexto() {
 		return NominalesTexto;
 	}

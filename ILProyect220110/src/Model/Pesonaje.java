@@ -11,6 +11,8 @@ public class Pesonaje {
 	protected ImageIcon ImagenAsociada;
 	protected String FindName;
 	protected ArrayList<String> Sinonimos;
+	protected int Aparicion;
+	protected ArrayList<String> ImagenesExtra;
 	
 	public Pesonaje(String NameIn, String acotado) {
 		Name=NameIn;
@@ -18,6 +20,7 @@ public class Pesonaje {
 		ImagenAsociada=null;
 		FindName=null;
 		Sinonimos=Thesaurus.getSinonimos(acotado);
+		Aparicion=1;
 	}
 	
 	
@@ -72,5 +75,20 @@ public class Pesonaje {
 	
 	public String getFindNameReal() {
 		return FindName;
+	}
+
+
+	public int getAparicion() {
+		return Aparicion;
+	}
+	
+	public void setAparicion(int aparicion) {
+		Aparicion = aparicion;
+	}
+
+
+	public void setImagenesExtra(ArrayList<String> images) {
+		ImagenesExtra=images;
+		
 	}
 }
