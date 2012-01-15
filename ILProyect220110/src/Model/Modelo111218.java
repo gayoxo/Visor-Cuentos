@@ -71,7 +71,7 @@ public class Modelo111218 {
 		ArrayList<Pesonaje> Limpios=new ArrayList<Pesonaje>();
 		for (Pesonaje P:NominalesTexto)
 			{
-			if (P.getAparicion()>2)
+			if (P.getAparicion()>CONSTANTES.Minimo_de_apariciones)
 				{
 				Limpios.add(P);
 				}

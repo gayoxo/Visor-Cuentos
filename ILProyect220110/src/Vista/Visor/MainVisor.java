@@ -100,10 +100,10 @@ public class MainVisor extends JFrame {
 
 					@Override
 					public void actionPerformed(ActionEvent arg0) {
-			//			ProcessoExpress.Iniciate();
+						ProcessoExpress.Iniciate();
 //						
-						UnirEntidades UE=new UnirEntidades();
-						UE.setVisible(true);
+//						UnirEntidades UE=new UnirEntidades();
+//						UE.setVisible(true);
 //						PanelSeleccionAutomaticoManual PSAM=new PanelSeleccionAutomaticoManual();
 //						PSAM.setVisible(true);
 					}
