@@ -116,7 +116,7 @@ public class GoogleImageFinderExpress{
 			
 		//	Imagen=URLEncoder.encode(Imagen, "UTF-8");
 			System.out.println(person.getName() + " : " + Imagen);
-			II = new ImageIconEspecial((new URL(Imagen)),Images);
+			II = new ImageIconEspecial((new URL(Imagen)),Images,0);
 			person.setImagenAsociada(II);
 			
 		} catch (MalformedURLException e) {
