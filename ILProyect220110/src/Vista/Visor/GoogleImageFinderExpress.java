@@ -32,7 +32,12 @@ public class GoogleImageFinderExpress{
 
 	private void getImagenes(String name) {
 		try {
-			URL google = new URL("http://images.google.com.uy/images?q="+name+"+.jpg"); 
+//			String TextoExtra="+jpg";
+			//	String TextoExtra="+Cuento";
+				String TextoExtra="";
+				String Busqueda="http://images.google.com.uy/images?q="+name+TextoExtra;
+				System.out.println(Busqueda);
+				URL google = new URL(Busqueda); 
 	        HttpURLConnection connection = (HttpURLConnection) google.openConnection();
 	        connection.addRequestProperty("User-Agent", "Mozilla/4.76"); 
 			BufferedReader in = new BufferedReader( 
