@@ -302,8 +302,8 @@ public class VisorCuentos extends JFrame {
 //	}
 	
 	public void actualizarPantalla(){ 
-		SwingUtilities.updateComponentTreeUI(this); 
-		this.validateTree(); 
+//		SwingUtilities.updateComponentTreeUI(this); 
+//		this.validateTree(); 
 		} 
 
 }
